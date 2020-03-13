@@ -1,0 +1,40 @@
+// 다중 클래스 사용시 전역변수로 사용할 때 쓰는 싱글톤 구현
+
+public class Test {
+   public static void main(String[] args) {
+      // TODO Auto-generated method stub
+      B mb = new B();
+      mb.TeS();
+      
+      A m = A.getInstance();
+      System.out.println(m.name);
+      
+   }
+
+}
+
+class A {
+   String name ="";
+   
+   private static A mA =null;
+   private A() {
+      
+   }
+   
+   public static A getInstance() {
+      if(mA ==null)
+         mA = new A();
+      return mA;
+   }
+   
+}
+
+
+class B{
+   
+   void DBSelect() {
+      
+      A m = A.getInstance();
+      m.name ="이름";
+   }
+}
